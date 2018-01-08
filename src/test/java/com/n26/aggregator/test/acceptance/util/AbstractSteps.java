@@ -34,8 +34,6 @@ public abstract class AbstractSteps {
 	
 	private MockHttpServletResponse lastGetResponse;
 	private MockHttpServletResponse lastPostResponse;
-	private MockHttpServletResponse lastPutResponse;
-	private MockHttpServletResponse lastDeleteResponse;
 	private int lastStatusCode;
 
 	protected void get(String url, Object... urlVariable) throws Exception {
@@ -79,14 +77,6 @@ public abstract class AbstractSteps {
 		return lastPostResponse;
 	}
 
-	protected MockHttpServletResponse getLastPutResponse() {
-		return lastPutResponse;
-	}
-
-	protected MockHttpServletResponse getLastDeleteResponse() {
-		return lastDeleteResponse;
-	}
-	
 	protected static <T> T deserialize(String json, Class<T> type) throws JsonParseException, JsonMappingException, IOException {
 		return mapper.readValue(json, type);
 	}
