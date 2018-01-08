@@ -28,7 +28,7 @@ public class StatisticsServiceHandler implements StatisticsService {
 	private static final Map<Integer, Statistics> statisticsForLastMin = new ConcurrentHashMap<>(SECONDS_STAT);
 
 	/**
-	 * Re-calculates statistics for last 60 seconds when new transaction data is received.
+	 * Calculates statistics for last 60 seconds when new transaction data is received.
 	 * Calculated summary(sum, min,, max, count) is stored inside map(Key = second and value = Statistics) for every second new summary is created
      * or existing one is updated with latest statistics for that second
      * If previously inserted entry is outdated then it will be overwritten by new one(s) (if no new transaction entry is received
@@ -81,7 +81,7 @@ public class StatisticsServiceHandler implements StatisticsService {
 		summary.setMax(Double.compare(summary.getMax(), Double.MIN_VALUE) == 0 ? 0.0 : summary.getMax());
 		summary.setAvg(summary.getCount() > 0l ? summary.getSum() / summary.getCount() : 0.0);
 
-		logger.info("Statistics summary for last minute => {}", summary);
+		logger.info("Statistics summary for last minute => {}", summary.toString());
 		return summary;
 	}
 

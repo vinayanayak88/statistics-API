@@ -27,7 +27,7 @@ import com.n26.aggregator.service.TransactionService;
 @RequestMapping(value = "/transactions", produces = "application/json")
 public class TransactionController {
 	
-	private static final Logger log = LoggerFactory.getLogger(TransactionController.class);
+	private static final Logger logger = LoggerFactory.getLogger(TransactionController.class);
 	
 	@Autowired
 	TransactionService transactionService;
@@ -35,6 +35,7 @@ public class TransactionController {
 	@RequestMapping(method = RequestMethod.POST, consumes = "application/json")
 	@ResponseBody
 	public ResponseEntity<Void> saveTransaction(@RequestBody Transaction transaction) {
+		logger.info(TransactionController.class + " : Received post request for transaction ");
 		transactionService.addTransaction(transaction);
 		return new ResponseEntity<>(HttpStatus.CREATED);
 	}

@@ -14,8 +14,8 @@ import com.n26.aggregator.model.Transaction;
 @Service
 public interface StatisticsService {
 	
-	void computeStatistics(Transaction transaction);
+	public void computeStatistics(Transaction transaction);
 
-    StatisticsSummary getStatistics();
+    public StatisticsSummary getStatistics();
 
 }

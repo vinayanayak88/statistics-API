@@ -31,6 +31,7 @@ public class StatisticsController {
 
 	@RequestMapping(method = RequestMethod.GET)
     public StatisticsSummary getStatistics(){
+		logger.info(StatisticsController.class + " : Received request for get statistics ");
 		StatisticsSummary summary = statisticsService.getStatistics();
 		if(summary.getCount() == 0) {
 			throw new StatisticsNotFoundException(Constant.NO_STATISTICS_FOUND);

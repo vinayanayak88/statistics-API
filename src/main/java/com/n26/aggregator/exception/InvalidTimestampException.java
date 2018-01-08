@@ -1,6 +1,9 @@
 package com.n26.aggregator.exception;
 
 /**
+ * Unchecked exception which is supposed to be
+ * thrown if the timestamp is older than 60 seconds
+ * 
  * @author vinayanayak
  * @date 05-Jan-2018
  * TrnsactionExpiredException.java

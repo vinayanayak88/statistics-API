@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.n26.aggregator.constant;
 
 /**
